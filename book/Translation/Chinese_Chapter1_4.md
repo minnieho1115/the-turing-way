@@ -1572,48 +1572,95 @@ When multiple people work on the same project (which is becoming more and more c
 The solution
 解决方案
 Hosting the project on a distributed version control system such as GitHub. Collaborators can then clone the project and work on the cloned copy making commits and new branches without impacting the original repository. Collaborators can then push their work to each other, and pull other’s work into their own copy. In this way it is easy to keep everyone up to date and to track what has been done and by who. GitHub also has numerous other handy features such as the ability to raise and assign issues, discuss the project via comments, and review each other’s changes.
+将项目托管在分布式版本控制系统（例如GitHub）上。然后，协作者可以克隆项目并处理克隆的副本以进行提交和创建新分支，而不会影响原始存储库。然后，协作者可以彼此推销自己的作品，并将其他人的作品拉入自己的副本中。通过这种方式，很容易使每个人都保持最新状态，并跟踪已完成的工作和由谁进行跟踪。GitHub还具有许多方便的功能，例如引发和分配问题，通过评论讨论项目以及查看彼此的更改的能力。
+
 Making the entire project and its history available online in this was also has two major benefits for research:
+将整个项目及其历史记录在线提供给研究也有两个主要好处：
 1.	Other researchers can re-use the work more easily. Rather than writing their own code to do what has already been written they can just use the original, which saves time. This also benefits the project’s original authors as other researchers are much more likely to build on the work (and cite it) if a great deal of the work has already been done.
+其他研究人员可以更轻松地重用这项工作。与其编写自己的代码来完成已经编写的事情，不如使用原始代码来节省时间。这也使该项目的原始作者受益，因为如果已经完成了大量工作，其他研究人员就更有可能继续研究该工作（并引用该工作）。
+
 2.	The research will be much more reproducible if the entire history of the project can be tracked. This enables results to be verified more easily, which benefits science.
+如果可以跟踪该项目的整个历史，则该研究将更具可重复性。这样可以更轻松地验证结果，这对科学有益。
+
 How to do it
+怎么做
 There are a number of GitHub tutorials available such as this one, or if you prefer you can follow along here.
+有许多GitHub教程可用，例如本教程，或者，如果您愿意，可以在这里继续学习。
+
 First make an account on GitHub, and create a repository on it. To do this click the + sign dropdown menu in the upper right hand of the screen. Enter a name for the repository (ideally the same name as the project folder on your computer) and click Create Repository. Now you just need to link the project on your computer to this online repository. If your project is not already version controlled then make it so by running git init and making a commit. In the terminal on your computer use:
+首先在GitHub上创建一个帐户，然后在GitHub上创建一个存储库。为此，请点击屏幕右上角的+号下拉菜单。输入存储库的名称（最好与计算机上的项目文件夹名称相同），然后单击“创建存储库”。现在，您只需要将计算机上的项目链接到此在线存储库即可。如果您的项目尚未受版本控制，则可以通过运行git init并提交来进行控制。在计算机的终端上使用：
+
 git remote add origin https://GitHub.com/your_username/repository_name
  
 then push all the files on your computer to the online version so they match via:
+然后将计算机上的所有文件推送到在线版本，以便通过以下方式进行匹配：
 git push -u origin master
  
 You can the go on and make more commits on your computer. When you want to push them to your online version similarly you do:
+您可以继续在计算机上进行更多提交。当您想将它们推到在线版本时，您可以执行以下操作：
 git push origin branch_you_want_to_push_to
  
 Others can then clone the repository to their computer by using:
+其他人然后可以使用以下方法将存储库克隆到他们的计算机：
 git clone https://GitHub.com/your_username/repository_name.Git
  
 They can make and commit changes to the code without impacting the original, and push their changes to their online GitHub account using:
+他们可以在不影响原始代码的情况下对代码进行更改和提交更改，并使用以下命令将更改推送到其在线GitHub帐户：
 git push -u origin master
  
 Naturally the exact same procedure applies to you if you want to clone someone else’s repository.
+自然，如果要克隆其他人的存储库，您完全可以使用同样的方法。
+
 Pull requests
+拉取请求
 So everyone’s got a copy of the code and they’re merrily working away on it, how do collaborators share their work? Pull requests. A pull request is a request for a person to pull someone else’s changes into their version on the project. Say person A has made changes they want to share with person B. On GitHub Person A needs to go to person B’s copy of the project and click the “New pull request” button. From there they can indicate which of their branches they would like person B to pull changes from, and which branch they want the changes pulled to. If person B accepts then person A’s changes will be merged into their repository by GitHub. They can discuss the request in comments, and make further commits to the request before it is accepted if necessary.
+因此，每个人都有一份代码副本，并且他们正在竭尽全力地工作，合作者如何共享他们的工作？拉取请求。提取请求是请求某人将其他人的更改提取到项目中其版本的请求。假设A做出了要与B分享的更改。在GitHub上，A需要转到B的项目副本，然后单击“新建请求请求”按钮。他们可以从那里指示他们希望人员B从哪个分支提取更改，以及他们希望将更改提取到哪个分支。如果B接受，则A的更改将被GitHub合并到他们的存储库中。他们可以在评论中讨论该请求，并在必要时进一步对该请求进行提交。
+
 When person B is setting up the pull request GitHub will automatically check whether there would be any merge conflicts if they accept, and highlight them if there are. These can then be resolved in further commits before the request is accepted, keeping the merge clean and painless.
+当人B设置拉取请求时，GitHub将自动检查是否接受合并冲突，如果存在则突出显示。然后，可以在接受请求之前在其他提交中解决这些问题，从而使合并保持轻松且清洁。
+
 Once the request is accepted GitHub will merge person A’s changes into person B’s online copy of the repository. Person B can the pull those changes down to the copy on their computer using:
+接受请求后，GitHub会将A的更改合并到B人存储库在线副本中。乙方可以使用以下方法将这些更改拉取到他们计算机上的副本中：
 git pull origin master
  
 It is also possible to make pull requests via the command line. A guide on how to do so is available here.
+也可以通过命令行发出拉取请求。有关如何执行此操作的指南，请参见此处。
+
 Good practice
+好的做法
 In your GitHub repository you should include a license to allow others to re-use your work legally. GitHub makes this very easy, simply click the “Create new file” button, name it “License.md” and a drop down menu will appear offering you a selection to choose from. The legalese can seem intimidating however this website offers a very simple mechanism to help you pick the best license for your project.
+在GitHub存储库中，您应该包含一个许可证，以允许其他人合法地重复使用您的工作。GitHub非常简单，只需单击“创建新文件”按钮，将其命名为“ License.md”，就会出现一个下拉菜单，供您选择。法律术语似乎有些吓人，但是此网站提供了一种非常简单的机制来帮助您为项目选择最佳许可证。
+
 You should also include a readme file where you include useful information about what the project is, how to use it and how to contribute to it. Switching between projects in your work is common, let alone that you might need to poke at your own previous projects from time to time. This information will also assist you collaborators, and your future employer might want to check your existing GitHub projects.
+您还应该包括一个readme文件，其中包括关于项目是什么、如何使用它以及如何对其进行贡献的有用信息。在工作中频繁地切换项目是很常见的，更不用说你可能需要不时地查看自己以前的项目。这些信息也将帮助你的合作者，你未来的雇主可能想要检查你现有的GitHub项目。
 There are plenty of readme templates available online, pick one you like, but here is a list of the main things a readme should include:
+在线提供了大量自述模板，您可以选择一个，这里列出了read me文件应包括的主要内容：
+
 •	The project name and what it is: This will greatly help the random prospective contributor to get an idea of the project. Include a few key points that describe the main features of the project and what are the main features you are implementing. This helps to quickly compare other projects with yours and to give an idea that why the project exists in the first place.
+项目名称及其含义：这将极大地帮助随机的潜在贡献者了解该项目。包括一些描述项目主要功能以及要实现的主要功能的关键点。这有助于快速将其他项目与您的项目进行比较，并让您知道为什么该项目首先存在。
+
 •	Instructions on how to install the project: The installer might be a collaborator, someone that comes across and is interested in the project, or even you if you get a new machine and need to re-install your project. Nevertheless, it’s a total waste of both of your resources to start figuring out how to just get started with the project. This should also include any prerequisites that will be needed to run the project. The best thing you can do is to just write up the installation instructions when you first do them yourself, and you will quickly save hours of work in the future.
+有关如何安装项目的说明：安装程序可能是协作者，比如遇到该项目并对该项目感兴趣的人，有时是你自己，比如如果您有新机器并需要重新安装项目。但是，弄清楚如何开始该项目完全浪费了您的全部资源。这还应该包括运行项目所需的任何先决条件。最好的办法是在您自己完成安装说明时就写下它们，这将在以后迅速节省工作时间。
 •	Instructions for how to run the project and any associated tests: If you have been working on your project it may seem obvious how to run it, but this will likely not be the case for someone coming across it for the first time.
+有关如何运行项目和任何相关测试的说明：如果您一直在处理项目，则看起来如何运行它似乎很明显，但是对于初次接触该项目的人来说，情况可能并非如此。
 •	Links to related material.
+链接到相关材料。
 •	List of authors/contributors to the project, possibly with contact information.
+该项目的作者/贡献者列表，可能还包含联系信息。
 •	Acknowledgements.
+致谢
 It can be a good idea to include documents outlining a code of conduct, agreed ways of working, and contributing guidelines, though depending on the level of detail you want to provide the latter two can also work as sections within the readme. These documents make explicit expectations for those working on/contributing to the project, making life easier for everyone. Similarly depending on the scope of your project you may wish to provide templates for how contributors should make pull requests or raise issues.
+最好包括一些概述行为准则，商定的工作方式和提供指导方针的文档，尽管您希望提供的详细信息取决于您的详细程度，后两者也可以作为read me文件的一部分。这些文档对从事该项目或为该项目做出贡献的人们提出了明确的期望，使每个人的生活更加轻松。同样，根据您的项目范围，您可能希望提供有关贡献者如何提出拉式请求或引发问题的模板。
+
 You can also make use of one of GitHub’s major features- issues. Anyone can raise an issue with the project and discuss it. By making issues for any significant changes a record can be kept of the history of the project. GitHub has a myriad of other features such a milestones and project boards which may also be of use.
+您还可以使用GitHub的主要功能之一-issue。任何人都可以提出有关该项目的问题并进行讨论。通过对任何重大更改进行问题处理，可以保留项目历史记录。GitHub还有许多其他功能，例如里程碑和项目板，它们也可能会有用。
+
 In pull requests you should clearly explain what the changes you’ve made are and why you made them. If your changes address and issue that has been raised reference it directly. If your request fixes and issue and you include “will fix #the_issue_number >” in the pull request, if the pull request is merged it will automatically close the referenced issue, keeping the issue queue nice and clean! This also works for using commit messages to close issues too.
+在拉取请求中，您应该清楚地说明所做的更改以及更改的原因。如果您的更改地址和提出的问题直接参考。如果您的请求已解决且存在问题，并且在请求请求中包含“将解决#the_issue_number>”，则如果合并了请求，它将自动关闭所引用的问题，从而使问题队列保持清洁。这也适用于使用提交消息来关闭问题。
+
 Summary of key Git commands
+关键Git命令总结
+
 Command	Use
 git init	Initialises a Git repository in that directory
 git add .	Add all changes to the staging area to be committed
@@ -1632,23 +1679,62 @@ git log	Output a log of past commits with their commit messages
 git status	Output status including what branch you’re on & what changes are staged
 git diff	Output difference between working directory and most recent commit
 git diff thing_a thing_b	Output difference between two things, such as commits and branches
+
+命令	采用
+git init	在该目录中初始化一个Git存储库
+git add .	将所有更改添加到要提交的登台区域
+git add file_name	将对指定文件的更改添加到暂存区域以进行提交
+git commit	提交阶段性更改，并允许您编写提交消息
+git checkout SHA	查看给定SHA的过去提交
+git checkout SHA – file_name	使用给定的SHA从提交中检出文件的过去版本
+git checkout -b branch_name	创建并切换到新分支
+git checkout branch_name	切换到指定的分支
+git merge branch_name	将您所在的分支合并到指定的分支中
+git clone url	在指定的URL处克隆存储库
+git remote add origin url	在指定的URL链接本地存储库和存储库
+git push origin branch_name	将本地更改推送到在线存储库的指定分支
+git pull origin branch_name	将对在线存储库的更改拉入本地存储库
+git log	输出过去提交的日志及其提交消息
+git status	输出状态，包括您所在的分支以及已进行的更改
+git diff	工作目录和最新提交之间的输出差异
+git diff thing_a thing_b	两件事之间的输出差异，例如提交和分支
+
 Checklists
+清单
 Make use of Git
+利用Git
 •	Make your project version controlled by initialising a Git repository in its directory using git init.
+通过使用初始化目录中的Git存储库来控制项目版本git init。
 •	Add and commit all your files to the repository using git add . then git commit.
+通过使用初始化目录中的Git存储库来控制项目版本git init。
 •	Continue to add and commit changes as your project progresses. Stage the changes in specific files to be committed with git add filename, and add messages to your commits.
+随着项目的进行，继续添加并提交更改。使用来暂存要提交的特定文件中的更改git add filename，并将消息添加到提交中。
 o	Each commit should make one simple change.
+每次提交都应做一个简单的更改。
 o	No generated files committed.
+没有提交任何生成的文件。
 o	Commit messages are meaningful, with a ~50 character summary at the top.
+提交很有意义的信息，并在顶部包含50个字符的摘要。
+
 o	Commit messages are in the present tense and imperative.
+提交消息具有当前时态和必要性。
 •	Develop new features on their own branches, which you can create via git checkout -b branch_name and switch between via git checkout branch_name.
+在自己的分支上开发新功能，您可以创建“ via” git checkout -b branch_name并在“ via”之间切换git checkout branch_name。
 o	Branches have informative names.
+分支具有参考性名称。
 o	Master branch is kept clean.
+主分支保持干净。
 o	Each branch has a single purpose and only changes related to that purpose are made on it.
-•	Once features are complete merge their branches into the master branch by switching to the feature branch and running git merge master.
+每个分支都有一个单一的目的，只有与该目的相关的更改才会在其上进行。
+Once features are complete merge their branches into the master branch by switching to the feature branch and running git merge master.
+功能部件完成后，通过切换到功能部件分支并运行，将其分支合并到master分支中git merge master。
 o	Merge other’s changes into your work frequently.
+经常将他人的更改合并到您的工作中。
 o	When dealing with merge conflicts make sure you fully understand both versions before trying to resolve them.
+处理合并冲突时，请确保您完全理解两个版本，然后再尝试解决它们。
+
 Put your project on GitHub
+将您的项目放在GitHub上
 •	Create a GitHub account.
 •	Create a repository on GitHub with the same name as your project.
 •	Attach your local and online repositories via git remote add origin repository_url.
@@ -1659,39 +1745,84 @@ Put your project on GitHub
 •	Include a readme.
 •	Set expectations for how collaborators are expected to behave via a code of conduct and or ways of working document.
 •	Use issues to track and discuss modifications to the project.
-Contribute to someone else’s project
+
+•	创建一个GitHub帐户。
+•	在GitHub上创建一个与您的项目同名的存储库。
+•	通过附加您的本地和在线存储库git remote add origin repository_url。
+•	通过将文件在线放置在项目的本地版本中git push -u origin master。
+•	继续通过将您在计算机上所做的更改推送到GitHub版本git push origin branch_name。
+•	通过将GitHub上所做的任何更改拉到您的本地版本git pull origin branch_name。
+•	包括许可证。
+•	包括自述文件。
+•	通过行为准则和/或工作文件方式，设定对协作者的期望行为的期望。
+•	使用问题来跟踪和讨论对项目的修改。
+
+Contribute to someone else’s project为别人的项目做贡献
 •	Clone their project’s repository from GitHub git clone repository_url.
 •	Make and commit changes.
 •	Push your changes to you GitHub version of the project.
 •	Make use of issues to discuss possible changes to a project.
 •	Make pull requests on GitHub to share your work.
 o	Clearly explain the changes you’ve made and why in your pull request.
-What to learn next
+•	从GitHub克隆其项目的存储库git clone repository_url。
+•	进行并提交更改。
+•	将所做的更改推送到项目的GitHub版本。
+•	利用问题来讨论项目的可能更改。
+•	在GitHub上发出拉取请求以共享您的工作。
+o	在请求请求中清楚地说明您所做的更改以及原因。
+
+What to learn next接下来要学什么
 Look into best practice for writing good quality code (for example, good naming conventions, informative comments, modular code structure). Many such skills are either also applicable for using version control well, for example, for writing good commit messages, or make using version control easier by keeping changes neat and localised.
-Further reading
+研究编写高质量代码的最佳实践（例如，良好的命名约定，内容丰富的注释，模块化的代码结构）。许多这样的技能或者也适用于很好地使用版本控制，例如，编写良好的消息提交，或者通过保持更改的干净和本地化而使使用版本控制更加容易。
+
+Further reading继续阅读
 •	A free and very in depth book on Gits myriad of features can be found here.
 •	A useful Git cheat sheet can be found here.
 •	Interactive tutorials for familiarising yourself with GitHub can be found at https://lab.github.com/.
-Definitions/glossary
+•	在这里可以找到关于Gits众多功能的免费且深入的书。
+•	在这里可以找到有用的Git备忘单。
+•	可以在https://lab.github.com/上找到用于熟悉GitHub的交互式教程。
+
+Definitions/glossary定义/词汇
+
 •	Add: Command used to add files to the staging area. Allows the user to specify which files or directories to include in the next commit.
+Add: 用于将文件添加到暂存区的命令。允许用户指定下一个提交中要包括的文件或目录。
 •	Branch: A parallel version of a repository. Although it is contained within the same repository it allows you to develop it separately and then merge changes back into the ‘live’ repository or with other branches when appropriate.
+Branch: 存储库的并行版本。尽管它包含在同一个存储库中，但它允许您单独开发它，然后在适当时将更改合并回“实时”存储库或与其他分支合并。
 •	Checkout: Git command to switch to a specific file, branch, or commit. Allows you to activate older versions of files or commits or switch between active branches.
+Checkout: 使用 Git命令切换到特定文件，分支或提交。允许您激活文件或提交的较旧版本，或在活动分支之间切换。
 •	Clone: Copy of an existing Git repository, normally from some remote location to your local environment. When you clone a repo you copy its entire history as well as all branches.
+Clone: 现有Git存储库的副本，通常是从某个远程位置复制到本地环境。克隆存储库时，您将复制其整个历史记录以及所有分支。
 •	Commit: Snapshot of project history. A commit can be made after changes of a single file or a range of files and directories.
+Commit:项目历史记录的快照。可以在更改单个文件或一系列文件和目录之后进行提交。
 •	Commit message: A message the user can attach to a commit to explain what it contains.
+Commit message: 用户可以附加到提交以说明其内容的消息。
 •	Git: Version control system that GitHub is built around. It is a widely used open source distributed version control system developed by the author of Linux.
+Git： GitHub构建的版本控制系统。它是Linux作者开发的一种广泛使用的开源分布式版本控制系统。
 •	GitHub: An online hosting and version control service which centres around the version control software Git. It has a great many features to aid collaboration between users.
+GitHub：在线托管和版本控制服务，以版本控制软件Git为中心。它具有许多功能，可以帮助用户之间进行协作。
 •	HEAD: the latest commit on the branch which is currently checked out
+HEAD：当前已签出的分支上的最新提交
 •	Issues: Bug tracking system for GitHub. Collaborators can use issues to report bugs, request features, or set milestones for projects. Issues are tracked, reported, and closed by collaborators during the development process. They’re a great way of communicating with your team and reporting progress.
+Issues:GitHub的错误跟踪系统。协作者可以使用问题来报告错误，请求功能或设置项目的里程碑。在开发过程中，协作者会跟踪，报告和关闭问题。它们是与您的团队进行交流并报告进度的好方法。
 •	Master: the repository’s main branch. Depending on the work flow it is the one people work on or the one where the integration happens.
+Master：存储库的主分支。根据工作流程，是一个人进行工作还是一个人进行集成。
 •	Merge: The process of combining branches. Changes made on one or more branches are applied to another.
+Merge: 合并分支的过程。在一个或多个分支上所做的更改将应用于另一分支。
 •	Merge conflict: Incompatibilities between branches being merged.
+合并冲突：合并分支之间的不兼容性。
 •	Pull request: Proposed changes to a remote repository. Collaborators without write access can send a pull request to the administrator with the changes they’ve made to the repo. The administrator can then approve and merge or reject the changes to the main repository. For open source projects pull requests can be sent by anyone that has forked a project.
-•	Push: Sending changes to a remote repo. The remote repository is updated with the changes pushed and now mirrors the local repo.
+Pull request: 对远程存储库的建议更改。没有写访问权的协作者可以将对仓库进行的更改向管理员发送拉取请求。然后，管理员可以批准并合并或拒绝对主存储库的更改。对于开源项目，任何派生项目的人都可以发送拉取请求。
+Push: Sending changes to a remote repo. The remote repository is updated with the changes pushed and now mirrors the local repo.
+推送：将更改发送到远程存储库。远程存储库已通过推送的更改进行更新，现在可以镜像本地存储库。
 •	Repository: Refers to a project folder that is being tracked by Git and containing project files. Also called ‘repo’ for short they can be local as well as hosted on GitHub.
+Repository: 指的是由Git跟踪并包含项目文件的项目文件夹。简称为“ repo”，它们可以是本地的，也可以托管在GitHub上。
 •	SHA: Unique string of numbers of letters used to identify every commit or node in the repository.
+SHA：字母数字的唯一字符串，用于标识存储库中的每个提交或节点。
 •	Staged: Changes that will be included in the next commit.
-Bibliography
+Staged: 将包含在下一次提交中的更改
+
+Bibliography参考书目
 •	1. Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License
 •	2. Creative Commons Attribution License (http://creativecommons.org/licenses/by/2.0) Other useful stuff in this paper, could use their into as part of the book’s intro
 •	3. Permission to use given by the author (Peter Reimann) 15/12/18
